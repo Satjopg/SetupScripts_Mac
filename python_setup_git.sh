@@ -4,10 +4,10 @@
 PYENV_URL=https://github.com/yyuu/pyenv.git
 VENV_URL=https://github.com/yyuu/pyenv-virtualenv.git
 PYENV_PATH=~/.pyenv
-VENV_PATH=~/.pyenv_virtualenv
+VENV_PATH=~/.pyenv/plugins/pyenv-virtualenv
 
 echo
-echo Hello!! This program is setup Python3 in your Mac!!
+echo Hello!! This program is setup Python in your Mac!!
 
 # gitはMacにデフォであるらしいが...確認大事
 if [ -x "`which git `" ]; then
@@ -59,16 +59,16 @@ else
   exit
 fi
 
+# ダウンロードしたいPythonのバージョンを入力させる
 echo "Please enter Python Version you want to use"
 echo "ex:3.3.3"
 read Python_Version
 
 echo "OK. Python$Python_Version install."
 
+# pyenv使ってインストール
 pyenv install $Python_Version
-
 pyenv global $Python_Version
-
 pyenv versions
 
 echo "Success Python install!!"
